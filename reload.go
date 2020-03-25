@@ -28,10 +28,8 @@ func PeriodReload(r Reloader, configFile string) error {
 
 	var lastMod time.Time
 	for {
-		period := r.Period()
-
 		// stopped
-		if period < 0 {
+		if r.Period() < 0 {
 			log.Log("[reload] stopped:", configFile)
 			return nil
 		}
@@ -62,6 +60,7 @@ func PeriodReload(r Reloader, configFile string) error {
 			return err
 		}
 
+		period := r.Period()
 		// disabled
 		if period == 0 {
 			log.Log("[reload] disabled:", configFile)
