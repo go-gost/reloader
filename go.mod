@@ -1,4 +1,4 @@
-module github.com/go-gost/reload
+module github.com/go-gost/reloader
 
 go 1.13
 
